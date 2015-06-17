@@ -6,8 +6,8 @@ package main
 trait LED {
   val ledBase = Array(
     " _     _  _     _  _  _  _  _ ",
-    "|  | | _| _||_||_ |_   ||_||_|",
-    "|_| ||_  _|  | _||_|  ||_| _|"
+    "| |  | _| _||_||_ |_   ||_||_|",
+    "|_|  ||_  _|  | _||_|  ||_| _|"
   )
 
   def num2led(num: Int): String = {
@@ -18,7 +18,7 @@ trait LED {
     }
 
     for (strDigit <- ("" + num).toCharArray) {
-      val iDigit = strDigit.toInt
+      val iDigit = strDigit.toInt - 48
       for (j <- 0 to 2) {
         tmpList(j) += ledBase(j).substring(iDigit * 3, iDigit * 3 + 3)
       }
