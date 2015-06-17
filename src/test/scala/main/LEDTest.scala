@@ -8,6 +8,7 @@ class LEDTest extends Specification with LED {
   "led test" should {
 
     "fool test" in {
+      print(num2led(10))
       1 mustEqual(1)
     }
 
