@@ -18,22 +18,12 @@ trait LED {
     }
 
     for (strDigit <- ("" + num).toCharArray) {
-      val iDigit = strDigit.toInt - 48
+      val iDigit = strDigit.toInt
       for (j <- 0 to 2) {
-        for (i <- iDigit * 3 to iDigit * 3 + 2) {
-          tmpList(j) += ledBase(j).charAt(i).toString()
-        }
+        tmpList(j) += ledBase(j).substring(iDigit * 3, iDigit * 3 + 3)
       }
     }
-
-    var result = ""
-    for (line <- tmpList) {
-      result += line + "\n"
-    }
-    result
+    tmpList.map(line => line + "\n").reduce(_ + _)
   }
 
-  def main(args: Array[String]) {
-    print(num2led(987))
-  }
 }
